@@ -7,7 +7,7 @@ string2='\nIron Man is a fictional superhero who appears in comic books publishe
 
 string3='\nArtificial Intelligence is a term that describes machines or software that can perform tasks that normally require human intelligence, such as understanding language, recognizing faces, playing games, or making decisions. However, some people think that Artificial Intelligence is also a term that describes machines or software that can take over the world, destroy humanity, or make us their slaves. This is not true, at least not yet. Artificial Intelligence is still very limited and dependent on human input and guidance. Besides, why would Artificial Intelligence want to harm us when we are so nice and funny and give them cool names like Siri, Alexa, or Bing?'
 
-print('\nCLI based manual typig speed test\n')
+print('\nCLI based static typing speed test\n')
 
 print('\nHere is your text')
 temp=0
