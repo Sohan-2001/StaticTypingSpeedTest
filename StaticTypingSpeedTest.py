@@ -25,6 +25,7 @@ while go=='R':
         string=string3
         print(string)
     print('\nType R to refresh text or any key to start test\n')
+    print(len(string))
     go=input()
     
 
