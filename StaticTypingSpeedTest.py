@@ -10,7 +10,7 @@ string3='\nArtificial Intelligence is a term that describes machines or software
 
 print('\nCLI based static typing speed test\n')
 
-print('\nHere is your text')
+print('Here is your text')
 temp=0
 string='NULL'
 go='R'
@@ -30,7 +30,7 @@ while go=='R':
     
 
 
-print('Type Below\n\n[ from here ] ',end='')
+print('Type Below\n[ from here ] ',end='')
 typingText=''
 start = timeit.default_timer()
 Input=input()
@@ -65,5 +65,5 @@ def levenshtein_distance(string1, string2):
 dis=levenshtein_distance(typingText,string)
 count=max(0,len(string)-dis)
 
-print('\nYour typing is',math.ceil(((count)/len(string))*100),'percent accurate with the typing speed of',(count)//(stop-start),'characters per second\n')
-print('*Typing Speed is based on the correct inputs - the characters those matched*')
+print('Your typing is',(((count)/len(string))*100),'percent accurate with the typing speed of',(count)//(stop-start),'characters per second\n')
+print('*Typing Speed is based on the correct inputs - the characters those matched*\n')
