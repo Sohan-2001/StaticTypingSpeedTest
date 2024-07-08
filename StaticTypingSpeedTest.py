@@ -1,5 +1,6 @@
 import random
 import timeit
+import math
 
 string1='\nA black hole is a region of space where gravity is so strong that nothing, not even light, can escape. Black holes form when massive stars collapse at the end of their life cycle. They have three main features: a singularity, an event horizon, and an accretion disk.'
 
@@ -24,13 +25,12 @@ while go=='R':
     else:
         string=string3
         print(string)
-    print('\nType R to refresh text or any key to start test\n')
-    print(len(string))
+    print('\nType R to refresh text or any press ENTER to start test')
     go=input()
     
 
 
-print('\nType Below\n\n[ from here ] ',end='')
+print('Type Below\n\n[ from here ] ',end='')
 typingText=''
 start = timeit.default_timer()
 Input=input()
@@ -40,13 +40,30 @@ while Input!='':
 
 stop = timeit.default_timer()
 count=0
-minimum=min(len(typingText),len(string))
-for i in range(0,minimum):
-    if string[i]==typingText[i]:
-        count+=1
-        
 
-print('Your typing is',(count/len(string))*100,'percent accurate with the typing speed of',len(typingText)//(stop-start),'characters per second\n')
+def levenshtein_distance(string1, string2):
+  len1 = len(string1)
+  len2 = len(string2)
+  if len1 == 0:
+    return len2
+  if len2 == 0:
+    return len1
+  dp = [[0 for _ in range(len2 + 1)] for _ in range(len1 + 1)]
+  for i in range(len1 + 1):
+    dp[i][0] = i
+  for j in range(len2 + 1):
+    dp[0][j] = j
+  for i in range(1, len1 + 1):
+    for j in range(1, len2 + 1):
+      if string1[i - 1] == string2[j - 1]:
+        cost = 0
+      else:
+        cost = 1
+      dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost)
+  return dp[len1][len2]
 
+dis=levenshtein_distance(typingText,string)
+count=max(0,len(string)-dis)
 
-
+print('\nYour typing is',math.ceil(((count)/len(string))*100),'percent accurate with the typing speed of',(count)//(stop-start),'characters per second\n')
+print('*Typing Speed is based on the correct inputs - the characters those matched*')
